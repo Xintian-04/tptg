@@ -17,8 +17,8 @@ body, html {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center; /* 居中对齐内容 */
-  align-items: center; /* 垂直居中对齐内容 */
+  justify-content: center;
+  align-items: center;
 }
 
 /* 背景 */
@@ -33,39 +33,41 @@ body, html {
 /* 角色 */
 .character {
   position: absolute;
-  bottom: 10%;    /* 不变或根据需要微调 */
+  bottom: 10%;
   left: 30%;
   transform: translateX(-50%);
-  height: 80%;    /* 从 60% 调整到 80% */
+  height: 80%;
   z-index: 1;
 }
 
 /* 对话框图片 */
 .dialogue-box-img {
   position: absolute;
-  bottom: 5%;    /* 从 18% 降到 12% */
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
   z-index: 2;
 }
-/* 对话文字和按钮 */
+
+/* 对话框文字和按钮区域 */
 .dialogue-text {
   position: absolute;
-  bottom: 5%;  /* 和对话框底部一样 */
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%; /* 与对话框宽度一致 */
+  width: 80%;
   color: white;
   z-index: 3;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  /* 文字靠左对齐 */
-  padding: 20px; /* 给容器内部加点空隙 */
+  align-items: flex-start;
+  padding: 20px;
   box-sizing: border-box;
 }
 
+/* 对话文字 */
 #dialogue {
   font-size: 1.2rem;
   margin-bottom: 10px;
@@ -74,16 +76,73 @@ body, html {
   word-wrap: break-word;
 }
 
+/* style1 的继续按钮 */
 #next-button {
   background: none;
   border: none;
   cursor: pointer;
-  align-self: flex-end; /* 把按钮推到容器右侧 */
-  margin-top: 10px;     /* 与上面文字间隔 */
-  margin-right: 10px;   /* 不贴边 */
+  align-self: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
-/* 按钮图片大小 */
 #next-button img {
-  width: 50px;
+  width: 70px;
+}
+
+/* style2 的按钮容器 */
+#option-buttons {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  align-items: center;
+  width: 100%;
+}
+
+/* style2 的按钮样式 */
+.option-btn {
+  padding: 12px 24px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 80%;
+  border-radius: 8px;
+}
+
+/* ========== 不同样式切换 ========== */
+
+/* style1: 正常对话样式 */
+.game-container.style1 .character {
+  display: block;
+}
+.game-container.style1 #next-button {
+  display: block;
+}
+.game-container.style1 .dialogue-box-img {
+  display: block;
+}
+
+/* style2: 无立绘、对话框拉高 + 三按钮 */
+.game-container.style2 .character {
+  display: none;
+}
+.game-container.style2 .dialogue-box-img {
+  display: none;
+}
+.game-container.style2 #next-button {
+  display: none;
+}
+.game-container.style2 #option-buttons {
+  display: flex;
+}
+
+/* style3: 只有背景图，其他全部隐藏 */
+.game-container.style3 .character,
+.game-container.style3 .dialogue-box-img,
+.game-container.style3 .dialogue-text,
+.game-container.style3 #next-button {
+  display: none;
 }

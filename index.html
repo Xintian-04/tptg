@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8" />
-  <title>解谜游戏</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="game-container">
-    <img src="assets/backgrounds/bg1.jpg" class="background" />
-    <img src="assets/charaters/lh1.jpg" class="character" />
-    <img src="assets/ui/text.jpg" class="dialogue-box-img" />
+<div class="game-container">
+  <img class="background" />
+  <img class="character" />
 
-    <div class="dialogue-text">
-      <p id="dialogue">这是第一句话，欢迎来到解谜世界。</p>
-      <button id="next-button">
-        <img src="assets/buttons/btn1.jpg" alt="继续" />
-      </button>
+  <img class="dialogue-box-img" />
+  <div class="dialogue-text">
+    <p id="dialogue"></p>
+    <button id="next-button">
+      <img src="assets/buttons/btn1.jpg" alt="继续" />
+    </button>
+
+    <!-- style2 按钮区域 -->
+    <div id="option-buttons" class="option-buttons" style="display: none;">
+      <button class="option-btn" data-target="scene1">返回场景A</button>
+      <button class="option-btn" data-target="scene2">返回场景B</button>
+      <button class="option-btn" data-target="scene3">进入style3</button>
     </div>
   </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+</div>
