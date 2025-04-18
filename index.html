@@ -1,19 +1,48 @@
-<div class="game-container">
-  <img class="background" />
-  <img class="character" />
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>互动游戏</title>
+  <link rel="stylesheet" href="style.css"> <!-- 引入样式文件 -->
+</head>
+<body>
 
-  <img class="dialogue-box-img" />
-  <div class="dialogue-text">
-    <p id="dialogue"></p>
-    <button id="next-button">
-      <img src="assets/buttons/btn1.jpg" alt="继续" />
-    </button>
+  <div class="game-container style1"> <!-- 默认使用 style1 -->
+    <img class="background" src="assets/background.jpg" alt="背景图" />
+    <img class="character" src="assets/character.jpg" alt="角色" />
 
-    <!-- style2 按钮区域 -->
-    <div id="option-buttons" class="option-buttons" style="display: none;">
-      <button class="option-btn" data-target="scene1">返回场景A</button>
-      <button class="option-btn" data-target="scene2">返回场景B</button>
-      <button class="option-btn" data-target="scene3">进入style3</button>
+    <img class="dialogue-box-img" src="assets/dialogue-box.png" alt="对话框" />
+    <div class="dialogue-text">
+      <p id="dialogue">这是一个示例对话。</p>
+      <button id="next-button">
+        <img src="assets/buttons/btn1.jpg" alt="继续" />
+      </button>
+
+      <!-- style2 按钮区域 -->
+      <div id="option-buttons" class="option-buttons" style="display: none;">
+        <button class="option-btn" data-target="scene1">返回场景A</button>
+        <button class="option-btn" data-target="scene2">返回场景B</button>
+        <button class="option-btn" data-target="scene3">进入style3</button>
+      </div>
     </div>
   </div>
-</div>
+
+  <button id="switch-style-btn">切换样式</button> <!-- 用于切换样式的按钮 -->
+
+  <script>
+    // 切换样式的功能
+    document.getElementById('switch-style-btn').addEventListener('click', () => {
+      const gameContainer = document.querySelector('.game-container');
+      gameContainer.classList.toggle('style1'); // 切换 style1
+      gameContainer.classList.toggle('style2'); // 切换 style2
+    });
+
+    // 显示选项按钮区域的功能
+    document.getElementById('next-button').addEventListener('click', () => {
+      document.getElementById('option-buttons').style.display = 'block'; // 显示按钮区域
+    });
+  </script>
+
+</body>
+</html>

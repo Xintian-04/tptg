@@ -11,7 +11,7 @@ const scenes = {
     dialogue: "点击继续，你将进入故事的第一幕。",
     style: "style1"
   },
-  scene2_5: {
+  sceneOption: {  // 重命名为 sceneOption
     background: "assets/backgrounds/option.jpg",
     character: "",
     dialogue: "你要往哪里去？",
@@ -65,7 +65,7 @@ nextBtn.addEventListener("click", () => {
   if (currentScene === "scene1") {
     loadScene("scene2");
   } else if (currentScene === "scene2") {
-    loadScene("scene2_5");
+    loadScene("sceneOption");  // 修改为 sceneOption
   }
 });
 
