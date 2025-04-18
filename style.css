@@ -16,12 +16,9 @@ body, html {
   position: relative;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* 背景 */
+/* 背景图通用 */
 .background {
   position: absolute;
   width: 100%;
@@ -30,18 +27,18 @@ body, html {
   z-index: 0;
 }
 
-/* 角色 */
-.character {
+/* ======================= style1 ======================= */
+.game-container.style1 .character {
   position: absolute;
   bottom: 10%;
   left: 30%;
   transform: translateX(-50%);
   height: 80%;
+  display: block;
   z-index: 1;
 }
 
-/* 对话框图片 */
-.dialogue-box-img {
+.game-container.style1 .dialogue-box-img {
   position: absolute;
   bottom: 5%;
   left: 50%;
@@ -50,8 +47,7 @@ body, html {
   z-index: 2;
 }
 
-/* 对话框文字和按钮区域 */
-.dialogue-text {
+.game-container.style1 .dialogue-text {
   position: absolute;
   bottom: 5%;
   left: 50%;
@@ -67,8 +63,7 @@ body, html {
   box-sizing: border-box;
 }
 
-/* 对话文字 */
-#dialogue {
+.game-container.style1 #dialogue {
   font-size: 1.2rem;
   margin-bottom: 10px;
   width: 100%;
@@ -76,8 +71,7 @@ body, html {
   word-wrap: break-word;
 }
 
-/* style1 的继续按钮 */
-#next-button {
+.game-container.style1 #next-button {
   background: none;
   border: none;
   cursor: pointer;
@@ -86,63 +80,88 @@ body, html {
   margin-right: 10px;
 }
 
-#next-button img {
+.game-container.style1 #next-button img {
   width: 70px;
 }
 
-/* style2 的按钮容器 */
-#option-buttons {
-  display: none;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-  align-items: center;
-  width: 100%;
-}
-
-/* style2 的按钮样式 */
-.option-btn {
-  padding: 12px 24px;
-  background-color: #333;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  width: 80%;
-  border-radius: 8px;
-}
-
-/* ========== 不同样式切换 ========== */
-
-/* style1: 正常对话样式 */
-.game-container.style1 .character {
-  display: block;
-}
-.game-container.style1 #next-button {
-  display: block;
-}
-.game-container.style1 .dialogue-box-img {
-  display: block;
-}
-
-/* style2: 无立绘、对话框拉高 + 三按钮 */
+/* ======================= style2 ======================= */
 .game-container.style2 .character {
   display: none;
 }
+
 .game-container.style2 .dialogue-box-img {
-  display: none;
-}
-.game-container.style2 #next-button {
-  display: none;
-}
-.game-container.style2 #option-buttons {
-  display: flex;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 300px;
+  object-fit: contain;
+  z-index: 2;
 }
 
-/* style3: 只有背景图，其他全部隐藏 */
+.game-container.style2 .dialogue-text {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 280px;
+  color: white;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.game-container.style2 #dialogue {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#option-buttons {
+  display: none;
+}
+
+.game-container.style2 #option-buttons {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 4;
+}
+
+.option-btn {
+  width: 300px;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ======================= style3 ======================= */
 .game-container.style3 .character,
 .game-container.style3 .dialogue-box-img,
 .game-container.style3 .dialogue-text,
+.game-container.style3 #option-buttons,
 .game-container.style3 #next-button {
   display: none;
 }
