@@ -52,30 +52,38 @@ body, html {
 /* 对话文字和按钮 */
 .dialogue-text {
   position: absolute;
-  bottom: 20%;    
+  bottom: 5%;  /* 和对话框底部一样 */
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
-  text-align: center;
+  width: 80%; /* 与对话框宽度一致 */
   color: white;
   z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* 文字靠左对齐 */
+  padding: 20px; /* 给容器内部加点空隙 */
+  box-sizing: border-box;
 }
 
 #dialogue {
   font-size: 1.2rem;
   margin-bottom: 10px;
+  width: 100%;
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
 #next-button {
   background: none;
   border: none;
   cursor: pointer;
-  position: absolute;
-  width: 80%;
-  bottom: 5%; /* 调整按钮位置 */
-  right: 5%; /* 放置按钮在右侧 */
+  align-self: flex-end; /* 把按钮推到容器右侧 */
+  margin-top: 10px;     /* 与上面文字间隔 */
+  margin-right: 10px;   /* 不贴边 */
 }
 
+/* 按钮图片大小 */
 #next-button img {
-  width: 100px;
+  width: 50px;
 }
